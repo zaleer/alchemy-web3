@@ -329,8 +329,7 @@ function processTokenBalanceResponse(
 ): TokenBalancesResponse {
   // Convert token balance fields from hex-string to decimal-string.
   const fixedTokenBalances = rawResponse.tokenBalances.map((balance) =>{
-    console.log("balance:",balance);
-    console.log("balance.tokenBalance:",balance.tokenBalance);
+
     return balance.tokenBalance != null
       ? {
           ...balance,
