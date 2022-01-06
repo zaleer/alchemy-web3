@@ -2,7 +2,7 @@ import Web3 from "web3";
 import { Log, LogsOptions, Transaction } from "web3-core";
 import web3CoreSubscriptions, { Subscription } from "web3-core-subscriptions";
 import { BlockHeader, Eth, Syncing } from "web3-eth";
-import { decodeParameter } from "web3-eth-abi";
+import coder from "web3-eth-abi";
 import { toHex } from "web3-utils";
 import {
   AlchemyWeb3Config,
@@ -334,7 +334,7 @@ function processTokenBalanceResponse(
     return balance.tokenBalance != null
       ? {
           ...balance,
-          tokenBalance: decodeParameter("uint256", balance.tokenBalance),
+          tokenBalance: coder.decodeParameter("uint256", balance.tokenBalance),
         }
       : balance;
     });
